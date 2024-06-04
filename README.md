@@ -16,3 +16,9 @@ Para o segundo experimento foi escolhido um dataset de predição de ataques car
 
 [Dataset escolhido pelo grupo](https://www.kaggle.com/datasets/aadarshvelu/heart-failure-prediction-clinical-records)
 
+utils:
+
+```
+pip freeze > requirements.txt
+pip install -r requirements.txt
+```
