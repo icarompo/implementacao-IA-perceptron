@@ -10,7 +10,7 @@ Integrantes: Ícaro Ponce, Jeová Barbosa, Wilque Muriel, Daniel e Thales Robert
 O primeiro experimento foi feito utilizando a base dados IRIS dado pela professora da disciplina
 
 
-## Experimento 2 (Heart Attack)
+## Experimento 2 (Heart Failure)
 
 Para o segundo experimento foi escolhido um dataset de predição de ataques cardíacos em pacientes que foram acompanhados por um determinado período de tempo
 
