@@ -1,4 +1,3 @@
-# Imports
 import time
 import pandas as pd
 from sklearn.model_selection import train_test_split
@@ -8,15 +7,17 @@ from sklearn.metrics import accuracy_score
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# Dataset
+# Carregar o dataset
 data = pd.read_csv("./heart_failure.csv")
 
-# Separar o campo objetivo
+# Separar features e target
 X = data.drop("DEATH_EVENT", axis=1)
 y = data["DEATH_EVENT"]
 
-# Divisao do conjunto de dados e Normalização
+# Dividir o conjunto de dados em treino e teste
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+
+# Normalizar os dados
 scaler = StandardScaler()
 X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
@@ -26,6 +27,7 @@ configs = [
     {"hidden_layer_sizes": (10,), "max_iter": 500},
     {"hidden_layer_sizes": (20,), "max_iter": 500},
     {"hidden_layer_sizes": (10, 10), "max_iter": 500},
+    {"hidden_layer_sizes": (10, 10, 10), "max_iter": 500},
 ]
 
 for config in configs:
@@ -47,8 +49,8 @@ for config in configs:
     # Plotar gráfico de dispersão
     plt.figure(figsize=(8, 6))
     colors = ['blue' if val == 0 else 'orange' for val in y_test]
-    plt.scatter(X_test['age'], X_test['serum_creatinine'], c=colors)
-    plt.xlabel('Age')
-    plt.ylabel('Serum Creatinine')
-    plt.title(f'Scatter plot of Age vs Serum Creatinine (Hidden Layers: {config["hidden_layer_sizes"]})')
+    plt.scatter(X_test['time'], X_test['creatinine_phosphokinase'], c=colors)
+    plt.xlabel('Time')
+    plt.ylabel('Creatinine Phosphokinase')
+    plt.title(f'Scatter plot of Time vs Creatinine Phosphokinase (Hidden Layers: {config["hidden_layer_sizes"]})')
     plt.show()
